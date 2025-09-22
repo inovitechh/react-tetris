@@ -1,0 +1,35 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with shadow -->
+  <defs>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="4" dy="4" stdDeviation="8" flood-color="rgba(0,0,0,0.3)"/>
+    </filter>
+  </defs>
+  
+  <!-- Dark background -->
+  <rect width="512" height="512" fill="#2C2C2C" rx="80" filter="url(#shadow)"/>
+  
+  <!-- Yellow L-shape (top-center/right) -->
+  <rect x="200" y="120" width="60" height="60" fill="#FFD700" rx="8"/>
+  <rect x="260" y="120" width="60" height="60" fill="#FFD700" rx="8"/>
+  <rect x="260" y="180" width="60" height="60" fill="#FFD700" rx="8"/>
+  <rect x="200" y="180" width="60" height="60" fill="#FFD700" rx="8"/>
+  
+  <!-- Red L-shape (bottom-left) -->
+  <rect x="120" y="280" width="60" height="60" fill="#FF4444" rx="8"/>
+  <rect x="120" y="340" width="60" height="60" fill="#FF4444" rx="8"/>
+  <rect x="180" y="340" width="60" height="60" fill="#FF4444" rx="8"/>
+  
+  <!-- Magenta square (bottom-left) -->
+  <rect x="120" y="400" width="60" height="60" fill="#FF44FF" rx="8"/>
+  
+  <!-- Green vertical (bottom-right) -->
+  <rect x="320" y="280" width="60" height="60" fill="#44FF44" rx="8"/>
+  <rect x="320" y="340" width="60" height="60" fill="#44FF44" rx="8"/>
+  
+  <!-- Cyan vertical (bottom-right) -->
+  <rect x="380" y="280" width="60" height="60" fill="#44FFFF" rx="8"/>
+  <rect x="380" y="340" width="60" height="60" fill="#44FFFF" rx="8"/>
+  <rect x="380" y="400" width="60" height="60" fill="#44FFFF" rx="8"/>
+</svg>
+

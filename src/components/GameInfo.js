@@ -43,14 +43,14 @@ const GameInfo = ({ score, level, lines, nextPiece }) => {
 
 const styles = StyleSheet.create({
   gameInfo: {
-    marginRight: 15,
-    minWidth: 120,
+    marginRight: 12,
+    minWidth: 100,
   },
   infoSection: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 10,
-    padding: 15,
-    marginBottom: 15,
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 12,
     alignItems: 'center',
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.2)',
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
   infoValue: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   nextPiecePreview: {
@@ -76,12 +76,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   nextPieceCell: {
-    width: 12,
-    height: 12,
+    width: 10,
+    height: 10,
     borderRadius: 2,
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.2)',
-    margin: 1,
+    margin: 0.5,
   },
 });
 

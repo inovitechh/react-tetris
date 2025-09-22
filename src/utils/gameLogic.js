@@ -71,3 +71,6 @@ export const getDropPosition = (board, piece, position, rotation) => {
   
   return dropY;
 };
+
+
+

@@ -289,7 +289,10 @@ const styles = StyleSheet.create({
   },
   gameContainer: {
     flex: 1,
-    padding: 20,
+    padding: 15,
+    maxWidth: 450,
+    alignSelf: 'center',
+    width: '100%',
   },
   gameHeader: {
     flexDirection: 'row',
@@ -318,5 +321,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'flex-start',
+    maxWidth: 400,
+    alignSelf: 'center',
   },
 });

@@ -95,3 +95,6 @@ Herhangi bir sorunuz veya öneriniz için issue açabilirsiniz.
 ---
 
 **Not**: Bu oyun özellikle Android cihazlar için optimize edilmiştir ve dokunmatik kontroller ile en iyi deneyimi sunar.
+
+
+

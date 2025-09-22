@@ -65,3 +65,6 @@ export const COLORS = {
   BORDER: '#333',
   BACKGROUND: 'rgba(0, 0, 0, 0.1)'
 };
+
+
+

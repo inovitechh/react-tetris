@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { rotatePiece, getDropPosition } from '../utils/gameLogic';
 
 const { width: screenWidth } = Dimensions.get('window');
-const CELL_SIZE = Math.min(screenWidth * 0.08, 25);
+const CELL_SIZE = Math.min(screenWidth * 0.06, 20);
 
 const GameBoard = ({ board, currentPiece, position, rotation, gameOver }) => {
   // Oyun tahtasını render et
@@ -85,16 +85,26 @@ const GameBoard = ({ board, currentPiece, position, rotation, gameOver }) => {
 
 const styles = StyleSheet.create({
   gameBoard: {
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    borderRadius: 10,
-    padding: 10,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    borderRadius: 15,
+    padding: 8,
+    borderWidth: 3,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
   },
   boardGrid: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 5,
-    padding: 2,
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderRadius: 8,
+    padding: 3,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
   },
   boardRow: {
     flexDirection: 'row',
@@ -102,10 +112,10 @@ const styles = StyleSheet.create({
   boardCell: {
     width: CELL_SIZE,
     height: CELL_SIZE,
-    borderRadius: 2,
+    borderRadius: 3,
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.1)',
-    margin: 0.5,
+    margin: 0.3,
   },
   shadowCell: {
     backgroundColor: 'rgba(255, 255, 255, 0.2)',

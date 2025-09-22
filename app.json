@@ -4,12 +4,10 @@
     "slug": "react-tetris",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#667eea"
+      "backgroundColor": "#2C2C2C"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -18,14 +16,15 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#667eea"
-      },
-      "package": "com.reacttetris.app"
+      "package": "com.reacttetris.app",
+      "versionCode": 2,
+      "permissions": []
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "web": {},
+    "extra": {
+      "eas": {
+        "projectId": "1ad863ca-dd41-4c79-b074-a8aceab6538e"
+      }
     }
   }
 }
