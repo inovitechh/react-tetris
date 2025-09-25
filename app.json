@@ -3,8 +3,11 @@
     "name": "React Tetris",
     "slug": "react-tetris",
     "version": "1.0.0",
+    "description": "Classic Tetris game with modern touch controls",
+    "author": "Inovi Tech Corp",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
     "splash": {
       "resizeMode": "contain",
       "backgroundColor": "#2C2C2C"
@@ -13,12 +16,22 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rmztngame.reacttetris",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
-      "package": "com.reacttetris.app",
-      "versionCode": 2,
-      "permissions": []
+      "package": "com.rmztngame.reacttetris",
+      "versionCode": 5,
+      "versionName": "1.0.0",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#2C2C2C"
+      },
+      "permissions": [],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.rmztngame.reacttetris"
     },
     "web": {},
     "extra": {
