@@ -30,7 +30,8 @@ jobs:
     - name: Login to Expo
       run: eas login --non-interactive
       env:
-        EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        EXPO_USERNAME: ${{ secrets.EXPO_USERNAME }}
+        EXPO_PASSWORD: ${{ secrets.EXPO_PASSWORD }}
         
     - name: Build AAB
       run: eas build --platform android --profile production --non-interactive
