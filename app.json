@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "React Tetris",
-    "slug": "react-tetris",
+    "name": "Mobile Tetris",
+    "slug": "mobile-tetris",
     "version": "1.0.0",
     "description": "Classic Tetris game with modern touch controls",
     "author": "Inovi Tech Corp",
@@ -23,21 +23,21 @@
       }
     },
     "android": {
-      "package": "com.rmztngame.reacttetris",
-      "versionCode": 5,
+      "package": "com.rmztngame.tetrisreact",
+      "versionCode": 1,
       "versionName": "1.0.0",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#2C2C2C"
       },
-      "permissions": [],
-      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.rmztngame.reacttetris"
+      "permissions": []
     },
     "web": {},
     "extra": {
       "eas": {
-        "projectId": "1ad863ca-dd41-4c79-b074-a8aceab6538e"
+        "projectId": "31083966-62f1-49bf-bc67-fbd8647444c0"
       }
-    }
+    },
+    "owner": "expoinovi"
   }
 }
