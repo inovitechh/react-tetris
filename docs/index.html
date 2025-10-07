@@ -12,21 +12,23 @@
       body{min-height:100vh;background:linear-gradient(135deg,var(--bg1),var(--bg2));
         font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial}
       .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
-      .card{background:var(--panel);backdrop-filter:blur(6px);border-radius:16px;padding:16px;display:flex;gap:16px;align-items:center;flex-direction:column;max-width:960px;width:100%}
-      canvas{background:#0e1323;border-radius:8px;image-rendering:pixelated;image-rendering:crisp-edges;width:min(92vw,360px);height:auto}
+      .card{background:var(--panel);backdrop-filter:blur(6px);border-radius:16px;padding:16px;display:flex;gap:16px;align-items:center;flex-direction:column;max-width:900px;width:100%}
+      canvas{background:#0e1323;border-radius:8px;image-rendering:pixelated;image-rendering:crisp-edges;width:min(88vw,300px);height:auto}
       .side{min-width:0;color:#fff;width:100%}
+      .preview{background:var(--panel);border-radius:12px;padding:10px;margin:8px 0;display:flex;align-items:center;justify-content:center}
+      .preview canvas{background:rgba(14,19,35,.5);border-radius:8px;image-rendering:pixelated}
       h1{font-size:18px;margin-bottom:8px}
       .stat{background:var(--panel);padding:8px 10px;border-radius:10px;margin-bottom:8px}
       button{width:100%;padding:12px 14px;border:0;border-radius:10px;background:#ff6b6b;color:#fff;font-weight:700;cursor:pointer}
       .keys{margin-top:8px;font-size:12px;opacity:.85}
       @media (min-width:640px){
         .card{flex-direction:row;align-items:flex-start;justify-content:center}
-        canvas{width:320px}
-        .side{max-width:220px}
+        canvas{width:280px}
+        .side{max-width:200px}
       }
       @media (min-width:1024px){
-        canvas{width:360px}
-        .side{max-width:260px}
+        canvas{width:320px}
+        .side{max-width:240px}
       }
     </style>
   </head>
@@ -39,6 +41,7 @@
           <div class="stat">Skor: <b id="score">0</b></div>
           <div class="stat">Seviye: <b id="level">1</b></div>
           <div class="stat">Satır: <b id="lines">0</b></div>
+          <div class="preview"><canvas id="nextCanvas" width="80" height="80"></canvas></div>
           <button id="start">Oyunu Başlat</button>
           <div class="keys">Ok tuşları: hareket / Yukarı: döndür / Aşağı: hızlı düşür / Boşluk: hard drop</div>
         </div>
@@ -55,6 +58,7 @@
       I:[[1,1,1,1]], J:[[1,0,0],[1,1,1]], L:[[0,0,1],[1,1,1]], O:[[1,1],[1,1]], S:[[0,1,1],[1,1,0]], T:[[0,1,0],[1,1,1]], Z:[[1,1,0],[0,1,1]]
     };
     const board = Array.from({length:ROWS},()=>Array(COLS).fill(0));
+    const nextCtx = document.getElementById('nextCanvas').getContext('2d');
     let current=null,next=null,pos={x:0,y:0},rot=0,score=0,level=1,lines=0,dropTimer=0,dropInterval=1000,running=false;
     const $ = id=>document.getElementById(id);
     function randPiece(){ const t=Object.keys(SHAPES)[Math.floor(Math.random()*7)]; return {type:t, shape:SHAPES[t], color:COLORS[t]}; }
@@ -69,7 +73,15 @@
     function clearLines(){ let c=0; for(let y=ROWS-1;y>=0;y--) if(board[y].every(Boolean)){ board.splice(y,1); board.unshift(Array(COLS).fill(0)); c++; y++; }
       if(c){ lines+=c; score+=c*100*level; level=Math.floor(lines/10)+1; dropInterval=Math.max(100,1000-(level-1)*100); updateHud(); }
     }
-    function spawn(){ current=next||randPiece(); next=randPiece(); rot=0; pos.x=Math.floor((COLS-shape()[0].length)/2); pos.y=-2; if(collide(pos.x,pos.y)) running=false; }
+    function spawn(){
+      current = next || randPiece();
+      next = randPiece();
+      rot = 0;
+      pos.x = Math.floor((COLS - shape()[0].length)/2);
+      pos.y = -2;
+      drawNext();
+      if(collide(pos.x,pos.y)) running=false;
+    }
     function drawCell(x,y,c){ ctx.fillStyle=c; ctx.fillRect(x,y,1,1); ctx.strokeStyle='rgba(0,0,0,.25)'; ctx.lineWidth=0.05; ctx.strokeRect(x,y,1,1); }
     function draw(){ ctx.clearRect(0,0,COLS,ROWS); for(let y=0;y<ROWS;y++) for(let x=0;x<COLS;x++) if(board[y][x]) drawCell(x,y,board[y][x]);
       if(current){ const s=shape(); for(let y=0;y<s.length;y++) for(let x=0;x<s[y].length;x++) if(s[y][x]){ const yy=pos.y+y; if(yy>=0) drawCell(pos.x+x,yy,current.color); }} }
@@ -79,7 +91,25 @@
     const rotCW=()=>{ const old=rot; rot=(rot+1)%4; if(collide()) rot=old; };
     const hardDrop=()=>{ while(!collide(pos.x,pos.y+1)) pos.y++; merge(); clearLines(); spawn(); };
     function updateHud(){ $('score').textContent=score; $('level').textContent=level; $('lines').textContent=lines; }
-    $('start').onclick=()=>{ if(running) return; board.forEach(r=>r.fill(0)); score=0; level=1; lines=0; updateHud(); next=randPiece(); spawn(); running=true; dropTimer=0; requestAnimationFrame(update); };
+    function drawNext(){
+      nextCtx.clearRect(0,0,80,80);
+      if(!next) return;
+      let s = next.shape;
+      // center piece in 4x4 box
+      const cell = 16; // px per cell inside preview
+      // compute offsets
+      const w = s[0].length, h = s.length;
+      const startX = Math.floor((80/cell - w)/2);
+      const startY = Math.floor((80/cell - h)/2);
+      for(let y=0;y<h;y++) for(let x=0;x<w;x++) if(s[y][x]){
+        nextCtx.fillStyle = next.color;
+        nextCtx.fillRect((startX+x)*cell,(startY+y)*cell,cell,cell);
+        nextCtx.strokeStyle = 'rgba(0,0,0,.25)';
+        nextCtx.lineWidth = 1;
+        nextCtx.strokeRect((startX+x)*cell,(startY+y)*cell,cell,cell);
+      }
+    }
+    $('start').onclick=()=>{ if(running) return; board.forEach(r=>r.fill(0)); score=0; level=1; lines=0; updateHud(); next=randPiece(); drawNext(); spawn(); running=true; dropTimer=0; requestAnimationFrame(update); };
     window.addEventListener('keydown',e=>{ if(!running) return; if(e.key==='ArrowLeft') move(-1); else if(e.key==='ArrowRight') move(1); else if(e.key==='ArrowUp') rotCW(); else if(e.key==='ArrowDown') drop(); else if(e.code==='Space') hardDrop(); });
     draw();
   </script>
