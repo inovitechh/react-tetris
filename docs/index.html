@@ -14,6 +14,9 @@
       .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
       .card{background:var(--panel);backdrop-filter:blur(6px);border-radius:16px;padding:16px;display:flex;gap:16px;align-items:center;flex-direction:column;max-width:900px;width:100%}
       canvas{background:#0e1323;border-radius:8px;image-rendering:pixelated;image-rendering:crisp-edges;width:min(88vw,300px);height:auto}
+      .pad{width:min(88vw,300px);display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:8px;margin-top:10px}
+      .pad button{padding:14px 0;border:0;border-radius:12px;background:#ffffff1a;border:1px solid #ffffff22;color:#fff;font-weight:700}
+      .pad .blank{visibility:hidden}
       .side{min-width:0;color:#fff;width:100%}
       .preview{background:var(--panel);border-radius:12px;padding:8px;margin:8px 0;display:flex;align-items:center;justify-content:center}
       .preview canvas{background:rgba(14,19,35,.5);border-radius:8px;image-rendering:pixelated}
@@ -27,10 +30,12 @@
       @media (min-width:640px){
         .card{flex-direction:row;align-items:flex-start;justify-content:center}
         canvas{width:280px}
+        .pad{width:280px}
         .side{max-width:200px}
       }
       @media (min-width:1024px){
         canvas{width:320px}
+        .pad{width:320px}
         .side{max-width:240px}
       }
     </style>
@@ -39,6 +44,17 @@
     <div class="wrap">
       <div class="card">
         <canvas id="tetris" width="200" height="400"></canvas>
+        <div class="pad" id="dpad">
+          <button class="blank"></button>
+          <button id="padUp">▲</button>
+          <button class="blank"></button>
+          <button id="padLeft">◀</button>
+          <button id="padRotate">⟳</button>
+          <button id="padRight">▶</button>
+          <button class="blank"></button>
+          <button id="padDown">▼</button>
+          <button id="padDrop">⬇</button>
+        </div>
         <div class="side">
           <h1>Mobile Tetris</h1>
           <div class="stat">Skor: <b id="score">0</b></div>
@@ -128,6 +144,12 @@
     bindTap('btnRotate',()=>rotCW());
     bindTap('btnDown',()=>drop());
     bindTap('btnDrop',()=>hardDrop());
+    // D-pad bindings
+    bindTap('padLeft',()=>move(-1));
+    bindTap('padRight',()=>move(1));
+    bindTap('padUp',()=>rotCW());
+    bindTap('padDown',()=>drop());
+    bindTap('padDrop',()=>hardDrop());
     draw();
   </script>
 </body>
