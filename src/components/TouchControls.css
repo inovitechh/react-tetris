@@ -1,0 +1,227 @@
+.touch-controls {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.start-game-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.start-game-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.start-game-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+.start-game-btn:active {
+  transform: translateY(0);
+}
+
+.control-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  justify-content: space-between;
+}
+
+.center-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-btn:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.control-btn.pressed {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0.95);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.control-icon {
+  display: block;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Buton boyutları */
+.move-left,
+.move-right {
+  width: 60px;
+  height: 60px;
+}
+
+.rotate {
+  width: 50px;
+  height: 50px;
+  font-size: 1.3rem;
+}
+
+.hard-drop {
+  width: 50px;
+  height: 50px;
+  font-size: 1.3rem;
+}
+
+.control-instructions {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 400px;
+}
+
+.control-instructions p {
+  margin: 5px 0;
+}
+
+/* Mobil cihazlar için responsive */
+@media (max-width: 768px) {
+  .control-area {
+    padding: 15px;
+    gap: 10px;
+    max-width: 350px;
+  }
+  
+  .move-left,
+  .move-right {
+    width: 55px;
+    height: 55px;
+    font-size: 1.3rem;
+  }
+  
+  .rotate,
+  .hard-drop {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .center-controls {
+    gap: 8px;
+  }
+  
+  .control-instructions {
+    font-size: 0.8rem;
+    padding: 0 10px;
+  }
+  
+  .start-game-btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .control-area {
+    padding: 12px;
+    gap: 8px;
+    max-width: 300px;
+  }
+  
+  .move-left,
+  .move-right {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .rotate,
+  .hard-drop {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .center-controls {
+    gap: 6px;
+  }
+  
+  .control-instructions {
+    font-size: 0.75rem;
+  }
+  
+  .start-game-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* Çok küçük ekranlar için */
+@media (max-width: 360px) {
+  .control-area {
+    max-width: 280px;
+    padding: 10px;
+  }
+  
+  .move-left,
+  .move-right {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .rotate,
+  .hard-drop {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}
+
+
+

@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Mobile Tetris",
+    "slug": "mobile-tetris",
+    "version": "1.0.0",
+    "description": "Classic Tetris game with modern touch controls",
+    "author": "Inovi Tech Corp",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
+    "experiments": {
+      "baseUrl": "/react-tetris"
+    },
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#2C2C2C"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rmztngame.reacttetris",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.reacttetris.app",
+      "versionCode": 1,
+      "versionName": "1.0.0",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#2C2C2C"
+      },
+      "permissions": []
+    },
+    "web": {},
+    "extra": {
+      "eas": {
+        "projectId": "31083966-62f1-49bf-bc67-fbd8647444c0"
+      }
+    },
+    "owner": "expoinovi"
+  }
+}

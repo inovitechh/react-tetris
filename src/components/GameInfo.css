@@ -1,0 +1,119 @@
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 150px;
+}
+
+.info-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.info-section h3 {
+  color: white;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.info-value {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.next-piece {
+  padding: 10px;
+}
+
+.next-piece-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: 5px;
+}
+
+.next-piece-row {
+  display: flex;
+  gap: 2px;
+}
+
+.next-piece-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Mobil cihazlar için responsive */
+@media (max-width: 768px) {
+  .game-info {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-width: auto;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .info-section {
+    flex: 1;
+    min-width: 80px;
+    padding: 10px;
+  }
+  
+  .info-section h3 {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+  }
+  
+  .info-value {
+    font-size: 1.2rem;
+  }
+  
+  .next-piece {
+    flex: 2;
+    min-width: 120px;
+  }
+  
+  .next-piece-cell {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-info {
+    gap: 8px;
+  }
+  
+  .info-section {
+    padding: 8px;
+    min-width: 70px;
+  }
+  
+  .info-section h3 {
+    font-size: 0.7rem;
+  }
+  
+  .info-value {
+    font-size: 1rem;
+  }
+  
+  .next-piece-cell {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+
+
