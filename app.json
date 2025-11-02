@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "Mobile Tetris",
-    "slug": "mobile-tetris",
-    "version": "1.0.0",
+    "name": "Tetrix Modern: Block Puzzle",
+    "slug": "tetrix-modern-block-puzzle",
+    "version": "2.0.0",
     "description": "Classic Tetris game with modern touch controls",
-    "author": "Inovi Tech Corp",
+    "author": "Inovi Tech Labs",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "icon": "./assets/icon.png",
@@ -20,15 +20,15 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.rmztngame.reacttetris",
+      "bundleIdentifier": "com.inovitech.tetrixmodern.blockpuzzle",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
-      "package": "com.reacttetris.app",
-      "versionCode": 1,
-      "versionName": "1.0.0",
+      "package": "com.inovitech.tetrixmodern.blockpuzzle",
+      "versionCode": 2,
+      "versionName": "2.0.0",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#2C2C2C"
@@ -36,11 +36,11 @@
       "permissions": []
     },
     "web": {},
+    "owner": "expoinovi",
     "extra": {
       "eas": {
-        "projectId": "31083966-62f1-49bf-bc67-fbd8647444c0"
+        "projectId": "99a384ad-4f88-4fc2-b774-fe6ffe25be74"
       }
-    },
-    "owner": "expoinovi"
+    }
   }
 }
