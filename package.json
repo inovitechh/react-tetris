@@ -1,6 +1,6 @@
 {
   "name": "Tetrix Modern: Block Puzzle",
-  "version": "2.0.0",
+  "version": "3",
   "description": "Bağımlılık yapan klasik blok bulmaca! Modern, hızlı ve eğlenceli tuğla oyunu.",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {

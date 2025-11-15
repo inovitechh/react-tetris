@@ -2,7 +2,7 @@
   "expo": {
     "name": "Tetrix Modern: Block Puzzle",
     "slug": "tetrix-modern-block-puzzle",
-    "version": "2.0.0",
+    "version": "3",
     "description": "Classic Tetris game with modern touch controls",
     "author": "Inovi Tech Labs",
     "orientation": "portrait",
@@ -27,8 +27,8 @@
     },
     "android": {
       "package": "com.inovitech.tetrixmodern.blockpuzzle",
-      "versionCode": 2,
-      "versionName": "2.0.0",
+      "versionCode": 3,
+      "versionName": "3",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#2C2C2C"
